@@ -18,7 +18,9 @@ app.use(bodyParser.json());
 // Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/query", queryRoutes);
-
+app.get("/", (req, res) => {
+    res.send("Hello, World!");
+})
 // Connect to MongoDB
 mongoose
     .connect(process.env.MONGO_URI, { })
