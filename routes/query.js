@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 // Get all queries
 router.get("/", async (req, res) => {
     try {
-        const queries = await Query.find().populate("user", "username");
+        const queries = await Query.find().populate();
         res.json(queries);
     } catch (err) {
         res.status(500).json({ message: "Server error" });
