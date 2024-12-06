@@ -4,14 +4,14 @@ const Query = require("../models/Query");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
-    const { user, description } = req.body;
+    const { name, phone, email, description } = req.body;
 
-    if (!user || !description) {
-        return res.status(400).json({ message: "User and description are required" });
+    if (!name || !phone) {
+        return res.status(400).json({ message: "Name and Phone are required" });
     }
 
     try {
-        const query = new Query({ user, description });
+        const query = new Query({ name, phone, email, description });
         await query.save();
         res.status(201).json(query);
     } catch (err) {

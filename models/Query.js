@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
 
 const querySchema = new mongoose.Schema({
-    user: { type: String, required: true }, // Changed from ObjectId to String for this case
-    description: { type: String, required: true },
+    name: { type: String, required: true }, 
+    phone: { type: String, required: true, unique: true },
+    email: { type: String},
+    description: { type: String},
     createdAt: { type: Date, default: Date.now },
 });
 
